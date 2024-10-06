@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Red Collar';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./assets//fonts/RedCollar/Redcollar.woff') format('woff'),
+         url('./assets/fonts/RedCollar/Redcollar.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./assets/fonts/TTCommons/TT\ Commons\ Regular.otf') format('opentype'),
+}
+
+@font-face {
+    font-family: 'TT Commons Semibold';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./assets/fonts/TTCommons/TT\ Commons\ DemiBold.otf') format('opentype'),
+}
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+      width: 10px;
+      padding-left: 45px;
+    }
+  
+    .scrollbar::-webkit-scrollbar-track {
+      border-radius: 100vh;
+      background: transparent;
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: #d3d3d3;
+      border-radius: 100vh;
+      border: 3px sol;
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #767676;
+    }
+  }

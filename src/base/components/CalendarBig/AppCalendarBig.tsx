@@ -1,8 +1,8 @@
 import { Calendar } from "antd"
 import styled from 'styled-components';
-import { AppButton } from "../Button";
-import { useCallback, useState } from "react";
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+import { CalendarProps } from "antd/lib";
+import { AppDateCell } from "./DateCell";
   
 const StyledCalendar = styled(Calendar)`
 
@@ -31,7 +31,7 @@ const StyledCalendar = styled(Calendar)`
         border-radius: 24px;
         padding: 10px;
 
-        div {
+        .ant-picker-cell-inner {
             margin: 0;
             padding: 0;
         }
@@ -47,12 +47,16 @@ const StyledCalendar = styled(Calendar)`
     }
 
     .ant-picker-cell-selected {
-        div {
+        .ant-picker-calendar-date-value {
             color: #F51B1B;
         }
-        
     }
 `;
+
+const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
+    if (info.type === 'date') return AppDateCell(current);
+    return info.originNode;
+  };
 
 
 export const AppCalendarBig = () => {
@@ -77,7 +81,11 @@ export const AppCalendarBig = () => {
             /> */}
    
 
-        <StyledCalendar  mode="month" value={dayjs()}/>
+        <StyledCalendar  
+            mode="month" 
+            value={dayjs()}
+            cellRender={cellRender}
+        />
         </div>
     
     )
